@@ -31,7 +31,7 @@ namespace Auth.API.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllUsers()
         {
             var result = await userService.GetAllUsers();

@@ -34,7 +34,7 @@ namespace Auth.API.Infrastructure.Auth
             }
         }
 
-        public string GenerateJwtToken(Guid id)
+        public string GenerateJwtToken(Guid id,string role)
         {
             var issuer = _configuration["Jwt:Issuer"];
             var audience = _configuration["Jwt:Audience"];
@@ -45,6 +45,7 @@ namespace Auth.API.Infrastructure.Auth
             var claims = new List<Claim>
             {
                 new Claim("id", id.ToString()),
+                new Claim("role", role),
             };
 
             var token = new JwtSecurityToken(

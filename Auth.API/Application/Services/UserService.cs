@@ -59,7 +59,7 @@ namespace Auth.API.Application.Services
                 return Result<string>.Failure("User not found");
             }
 
-            var bearerToken = authService.GenerateJwtToken(user.Id);
+            var bearerToken = authService.GenerateJwtToken(user.Id, "Admin");
 
             return Result<string>.Success(bearerToken);
         }
